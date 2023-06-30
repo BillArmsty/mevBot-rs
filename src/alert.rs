@@ -3,12 +3,6 @@ use std::collections::HashMap;
 /// Alerts discord channel, via webhook, we found an opportunity.
 pub async fn alert(msg: &str, block: &u64) {
 
-    
-    let msg = format!(
-        "-----------------------------\n🔍 Block: {:?}\n-----------------------------\n{}",
-        block, msg
-    );
-
     let max_length = 1900.min(msg.len());
     let message = msg[..max_length].to_string();
     let mut map = HashMap::new();

@@ -1,4 +1,5 @@
 use std::sync::Arc;
+use crate::alert;
 
 use ethers::prelude::{abi::AbiDecode, k256::ecdsa::SigningKey, *};
 
@@ -38,9 +39,13 @@ impl Dex {
     /// Attempts to retrieve the total pairs created from the dex's factory.
     pub async fn get_pairs(&self) {
         println!("Calling allPairsLength from {}", self.factory_address);
+        let msg = format!("Calling allPairsLength from {}", self.factory_address);
+        alert::alert(&msg, &0).await;
         match self.factory.all_pairs_length().call().await {
             Ok(result) => {
-                println!("   ~ [PASS] Total pairs: {:?}", result)
+                println!("   ~ [PASS] Total pairs: {:?}", result);
+                let msg = format!("   ~ [PASS] Total pairs: {:?}", result);
+                alert::alert(&msg, &0).await;
             }
             Err(e) => {
                 println!("   ~ [FAIL] Total pairs: {:?}", e)
