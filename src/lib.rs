@@ -46,6 +46,9 @@ impl Config {
 pub async fn run() {
     let config = Config::new().await;
 
+    let msg = "🚀 Starting strategy";
+    alert::alert(&msg, &0).await;
+
     // Example of how to interact with a contract.
     let spooky_factory = address(SPOOKY_SWAP_FACTORY);
     let spooky_router = address(SPOOKY_SWAP_ROUTER);

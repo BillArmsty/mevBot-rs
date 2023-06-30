@@ -2,6 +2,8 @@ use std::collections::HashMap;
 
 /// Alerts discord channel, via webhook, we found an opportunity.
 pub async fn alert(msg: &str, block: &u64) {
+
+    
     let msg = format!(
         "-----------------------------\n🔍 Block: {:?}\n-----------------------------\n{}",
         block, msg

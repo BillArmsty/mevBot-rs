@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
 abstract contract Ownable {
@@ -30,12 +31,6 @@ abstract contract Ownable {
     }
 }
 
-// --------------------------------------------------------------------------------------
-//
-// Trigger 031/08/2022 | SPDX-License-Identifier: MIT
-// Designed by, DeGatchi (https://github.com/DeGatchi).
-//
-// --------------------------------------------------------------------------------------
 
 interface IERC20 {
     function balanceOf(address account) external view returns (uint);
